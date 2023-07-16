@@ -1,9 +1,7 @@
 import axios from 'axios';
 import { CommandInteraction, Interaction } from 'discord.js';
-import { config } from 'dotenv';
 import { Command } from '#/types/command.js';
 
-config();
 const { UNSPLASH_ACCESS_KEY } = process.env;
 
 export const cheese = new Command('cheese', 'mmm cheese', async (index: Interaction) => {

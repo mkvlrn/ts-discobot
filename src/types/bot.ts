@@ -1,8 +1,7 @@
 import { Client, Events, GatewayIntentBits, InteractionReplyOptions } from 'discord.js';
-import { config } from 'dotenv';
 import { commands } from '#/util/get-commands.js';
+import { logger } from '#/util/logger.js';
 
-config();
 const { TOKEN } = process.env;
 
 export class Bot extends Client {
@@ -12,7 +11,7 @@ export class Bot extends Client {
     super({ intents: [GatewayIntentBits.Guilds] });
 
     this.once(Events.ClientReady, async (bot) => {
-      console.log(`online as ${bot.user.tag}`);
+      logger.info(`online as ${bot.user.tag}`);
     });
 
     this.on(Events.InteractionCreate, async (interaction) => {
@@ -20,14 +19,14 @@ export class Bot extends Client {
 
       const cmd = (interaction.client as Bot).commands.get(interaction.commandName);
       if (!cmd) {
-        console.error(`${interaction.commandName} invoked, ignored`);
+        logger.error(`${interaction.commandName} invoked, ignored`);
         return;
       }
 
       try {
         await cmd.execute(interaction);
       } catch (error) {
-        console.error(error);
+        logger.error(error);
         const reply: InteractionReplyOptions = {
           content: 'There was an error while executing this command!',
           ephemeral: true,

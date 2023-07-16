@@ -1,8 +1,6 @@
 import { REST, Routes } from 'discord.js';
-import { config } from 'dotenv';
 import { commands } from '#/util/get-commands.js';
-
-config();
+import { logger } from '#/util/logger.js';
 
 const { TOKEN, CLIENT_ID, SERVER_ID, NODE_ENV } = process.env;
 const isDevelopment = NODE_ENV === 'development';
@@ -17,7 +15,7 @@ const report = `${commands.size} commands registered in ${NODE_ENV}:\n${payload.
 
 try {
   await register();
-  console.log(report);
+  logger.info(report);
 } catch (error) {
-  console.error(error);
+  logger.error(error);
 }

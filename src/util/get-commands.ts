@@ -1,8 +1,8 @@
 import { readdir } from 'node:fs/promises';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { Command } from '#/types/command.js';
 
-const directory = fileURLToPath(new URL('../commands', import.meta.url));
+const directory = pathToFileURL(fileURLToPath(new URL('../commands', import.meta.url)));
 const files = await readdir(directory);
 const commands = new Map<string, Command>();
 
