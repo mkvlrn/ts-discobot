@@ -1,21 +1,22 @@
 import axios from 'axios';
 import { CommandInteraction, Interaction } from 'discord.js';
-import { Command } from '#/types/command.js';
+import { createCommand } from '#/commander.js';
 
 const { UNSPLASH_ACCESS_KEY } = process.env;
 
-export const cheese = new Command('cheese', 'mmm cheese', async (index: Interaction) => {
+const execute = async (index: Interaction) => {
   const interaction = index as CommandInteraction;
-
-  const response = await axios.get<{ urls: { raw: string } }>(
-    'https://api.unsplash.com/photos/random?query=cheese',
-    {
-      headers: {
-        'Accept-Version': 'v1',
-        Authorization: `Client-ID ${UNSPLASH_ACCESS_KEY}`,
-      },
+  const url = 'https://api.unsplash.com/photos/random?query=cheese';
+  const axiosOptions = {
+    headers: {
+      'Accept-Version': 'v1',
+      Authorization: `Client-ID ${UNSPLASH_ACCESS_KEY}`,
     },
-  );
+  };
+
+  const response = await axios.get<{ urls: { raw: string } }>(url, axiosOptions);
 
   interaction.reply(response.data.urls.raw);
-});
+};
+
+export const cheese = createCommand('cheese', 'mmm cheese', execute);
