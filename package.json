@@ -23,15 +23,15 @@
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
-    "@mkvlrn/eslint-config": "^23.8.4",
-    "@mkvlrn/prettier-config": "^23.8.2",
-    "@mkvlrn/tsconfig": "^23.8.0",
+    "@mkvlrn/eslint-config": "^23.9.0",
+    "@mkvlrn/prettier-config": "^23.8.3",
+    "@mkvlrn/tsconfig": "^23.9.1",
     "@trivago/prettier-plugin-sort-imports": "^4.2.0",
-    "@types/node": "^20.5.3",
-    "@typescript-eslint/eslint-plugin": "^6.4.1",
-    "@typescript-eslint/parser": "^6.4.1",
-    "@vitest/coverage-v8": "^0.34.2",
-    "eslint": "^8.47.0",
+    "@types/node": "^20.6.1",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "@vitest/coverage-v8": "^0.34.4",
+    "eslint": "^8.49.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.1.0",
     "eslint-config-prettier": "^9.0.0",
@@ -41,17 +41,17 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-unicorn": "^48.0.1",
-    "eslint-plugin-vitest": "^0.2.8",
+    "eslint-plugin-vitest": "^0.3.1",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
-    "prettier": "^3.0.2",
+    "prettier": "^3.0.3",
     "rimraf": "^5.0.1",
     "ts-node": "^10.9.1",
     "tsc-alias": "^1.8.7",
     "tsc-files": "^1.1.4",
-    "tsx": "^3.12.7",
-    "typescript": "^5.1.6",
-    "vitest": "^0.34.2"
+    "tsx": "^3.12.10",
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.4"
   },
   "eslintConfig": {
     "root": true,
@@ -80,9 +80,9 @@
     ]
   },
   "dependencies": {
-    "axios": "^1.4.0",
+    "axios": "^1.5.0",
     "discord.js": "^14.13.0",
     "dotenv": "^16.3.1",
-    "pino": "^8.15.0"
+    "pino": "^8.15.1"
   }
 }
